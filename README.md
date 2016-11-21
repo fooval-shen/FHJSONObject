@@ -11,12 +11,12 @@ Objective-c JSON 数据解析
 # Use
 
 ## Dictionary
-```ruby
+```objective-c
   FHJSONObject *object = [FHJSONObject jsonFromString:@"{\"title\":\"\u56fe\u96c6\",\"content\":\"\u56fe\u96c6\"}"];    
   XCTAssert([object type] == FHJSONTypeDictionary,@"解析结果不是一个字典");
 ```
 
-```ruby
+```objective-c
   NSDictionary *dictionary = @{@"key1" : @"Hello World", @"ke2" :@"value2",@"dic" :@{@"dicKey1"              :@"dicValue1",@"dicKey2":@"dicValue2"}};
    
     FHJSONObject *object = [FHJSONObject jsonObject:dictionary];
@@ -41,7 +41,7 @@ Objective-c JSON 数据解析
      NSLog(@"\n%@\n",[object rawValue]);
 ```
 ## Array
-```ruby
+```objective-c
 NSArray *array = @[@"array1",@"array2",@"array3",@(4)];
    
     FHJSONObject *object = [FHJSONObject jsonObject:array];
