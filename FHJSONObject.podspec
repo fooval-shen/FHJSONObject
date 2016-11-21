@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
 
   
   s.subspec 'Source' do |ss|
-    ss.source_files = 'FHJSONObject/FHJSONObject/*.{h,m}'
-    ss.public_header_files = 'FHJSONObject/FHJSONObject/*.{h}'      
-  end  
+    ss.source_files = 'FHJSONObject/JSONObject/*.{h,m}'
+    ss.public_header_files = 'FHJSONObject/JSONObject/*.{h}'      
+  end 
+   
 end
