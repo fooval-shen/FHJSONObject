@@ -260,7 +260,7 @@
     return nil;
 }
 - (NSDictionary *) dictionaryValue {
-    NSDictionary *dicValue = [self dictionary];
+    NSDictionary *dicValue = [self dictionary];  
     if ([dicValue isKindOfClass:NSDictionary.class]) {
         return dicValue;
     }
@@ -275,10 +275,44 @@
 }
 
 - (NSArray*) arrayValue {
-    NSArray *array = [self array];
+    NSArray *array = [self array]; 
     if ([array isKindOfClass:NSArray.class]) {
         return array;
     }
     return @[];
+}
+
+- (FHJSONObject*) lastObject {
+    if (self.type == FHJSONTypeArray) {
+        return [self.objectValue lastObject];
+    }
+    return nil;
+}
+
+- (BOOL) isEqual:(FHJSONObject *)object {
+    if (self.type != object.type) {
+        return FALSE;
+    }
+    if (self.type == FHJSONTypeNull) {
+        return TRUE;
+    }
+    if (self.type == FHJSONTypeString ) {
+        return [self.rawValue isEqualToString:object.rawValue ];
+    }
+    
+    return [self.rawValue isEqual:object.rawValue];
+}
+- (FHJSONObject *) firstObject {
+    if (self.type == FHJSONTypeDictionary || self.type == FHJSONTypeArray) {
+        return [self.objectValue firstObject];
+    }
+    return nil;
+}
+
+- (NSString*) description {
+    return [NSString stringWithFormat:@"type = %lu \t rawValuew = %@",(unsigned long)self.type,self.rawValue];
+}
+- (NSString*) debugDescription {
+    return [self description];
 }
 @end
